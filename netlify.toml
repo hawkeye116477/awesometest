@@ -11,3 +11,5 @@
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
 
+    Link = '''
+    </css/style.css>; rel=preload; onload="this.rel = 'stylesheet'"; as=style; crossorigin'''
