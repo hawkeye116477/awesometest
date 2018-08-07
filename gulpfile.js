@@ -21,8 +21,5 @@ gulp.task("sass", function () {
       .pipe(sass({
           outputStyle : "compressed"
       }))
-      .pipe(autoprefixer({
-          browsers : ["last 20 versions"]
-      }))
       .pipe(gulp.dest("assets/css"));
 });
