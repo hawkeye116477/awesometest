@@ -4,6 +4,18 @@
 <style type="text/css">
     {{ partial "critical.css" . | safeCSS }}
 </style>
+<script>
+    // Register the service worker
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+        // Registration was successful
+        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+      }).catch(function(err) {
+        // registration failed :(
+        console.log('ServiceWorker registration failed: ', err);
+      });
+    }
+</script>
 
 {{ $style := resources.Get "css/style.css" | fingerprint }}
 
@@ -11,3 +23,4 @@
     function LoadCssFile(cssPath){var l=document.createElement('link');l.rel='stylesheet';l.href=cssPath;var h=document.getElementsByTagName('head')[0];h.parentNode.insertBefore(l,h)}
     var cb=function(){LoadCssFile('{{ $style.Permalink }}')};var raf=window.requestAnimationFrame||window.mozRequestAnimationFrame||window.webkitRequestAnimationFrame||window.msRequestAnimationFrame;if(raf)raf(cb);else window.addEventListener('load',cb)
 </script>
+
