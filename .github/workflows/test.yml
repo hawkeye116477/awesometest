@@ -1,0 +1,12 @@
+name: "Test my action"
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-action:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: hawkeye116477/issue-manager-action@2ce091f5bbb6f40b6a2f414b76bccb7b92ed702b
+        with:
+          mode: "labelOpened"
